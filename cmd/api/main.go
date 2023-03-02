@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"main/internal/api"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("Initializing cse3330 project.")
+	gin.SetMode(gin.DebugMode)
+	server := api.InitServer()
+	server.ServeHTTP("0.0.0.0", 1000)
 }
