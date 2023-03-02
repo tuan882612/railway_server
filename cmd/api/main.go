@@ -9,5 +9,5 @@ import (
 func main() {
 	gin.SetMode(gin.DebugMode)
 	server := api.InitServer()
-	server.ServeHTTP("0.0.0.0", 1000)
+	server.ServeHTTP("localhost", 1000)
 }
