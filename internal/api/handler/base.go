@@ -10,7 +10,11 @@ import (
 func Default(ctx *gin.Context) {
 	body := map[string]interface{}{}
 	res := response.Custom(body, http.StatusOK, "Base endpoint")
+	ctx.JSON(http.StatusOK, res)
+}
 
+func Health(ctx *gin.Context) {
+	res := map[string]string{"heatlh":"good"}
 	ctx.JSON(http.StatusOK, res)
 }
 
@@ -20,6 +24,5 @@ func None(ctx *gin.Context) {
 		http.StatusNotFound,
 		"That endpoint does not exist",
 	)
-
 	ctx.JSON(http.StatusNotFound, res)
 }
