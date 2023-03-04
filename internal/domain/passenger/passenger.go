@@ -1,6 +1,9 @@
 package passenger
-//Name, Address, Category, ticket status
 
 type Passenger struct {
-	
+	Name 	 string `json:"name"`
+	Age		 int	`json:"age"`
+	Address  string `json:"address"`
+	Category string `json:"category"`
+	Status	 string `json:"status"`
 }
