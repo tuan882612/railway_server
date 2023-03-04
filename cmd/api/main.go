@@ -2,12 +2,19 @@ package main
 
 import (
 	"main/internal/api"
+	"main/tools/config"
+	"main/tools/validators"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	gin.SetMode(gin.DebugMode)
+
+	config.LoadEnv("../../.env")
+	validators.ValidateLoadEnv()
+	validators.ValidatePostgres()
+
 	server := api.InitServer()
-	server.ServeHTTP("localhost", 1000)
+	server.Start("localhost", 1000)
 }

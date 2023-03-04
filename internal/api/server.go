@@ -17,7 +17,7 @@ func InitServer() *RailwayServer {
 	return &RailwayServer{}
 }
 
-func (r *RailwayServer) ServeHTTP(address string, port int) {
+func (r *RailwayServer) Start(address string, port int) {
 	r.Engine = gin.Default()
 	r.ApiRoutes()
 	security.SetTrustedProxies(r.Engine)
