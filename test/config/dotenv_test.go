@@ -1,14 +1,15 @@
 package test
 
 import (
-	"main/tools/config"
-	"main/tools/validators"
+	"main/test"
+	"main/pkg/config"
+	"main/pkg/validators"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func Test_LoadEnv(t *testing.T) {
-	config.LoadEnv("../.env")
+	config.LoadEnv(test.EnvPath)
 	assert.Equal(t, true, validators.ValidateLoadEnv())
 }
