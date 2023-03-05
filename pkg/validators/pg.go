@@ -3,12 +3,12 @@ package validators
 import (
 	"context"
 	"log"
-	"main/tools/config"
+	"main/database"
 	"time"
 )
 
 func ValidatePostgres() bool {
-	client := config.GetClient()
+	client := database.GetClient()
 
 	query := "SELECT NOW()"
 	ctx := context.Background()
