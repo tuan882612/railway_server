@@ -6,7 +6,6 @@ This is a the backend service for the cse3330 project 1
 - Used **Go-lang** as the main language and frameworks used along with it was **Gin-Gonic** for the API and **pgx/v4** for raw sql queries and database connection.
 
 ## Requirements
-#
 You must have installed:
 - [Golang 1.20.1](https://go.dev/doc/install)
 ---
