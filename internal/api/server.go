@@ -10,19 +10,23 @@ import (
 )
 
 type RailwayServer struct {
-	Engine *gin.Engine
+	Engine  *gin.Engine
+	Address string
+	Port	int
 }
 
-func InitServer() *RailwayServer {
-	return &RailwayServer{}
+func InitServer(address string, port int) *RailwayServer {
+	return &RailwayServer{gin.Default(), address, port}
 }
 
-func (r *RailwayServer) Start(address string, port int) {
-	r.Engine = gin.Default()
+func (r *RailwayServer) Run() {
+	r.Engine.Run(r.Address+":"+strconv.Itoa(r.Port))
+}
+
+func (r *RailwayServer) LoadConfig() {
 	r.ApiRoutes()
 	security.SetTrustedProxies(r.Engine)
 	security.SetMiddleware(r.Engine)
-	r.Engine.Run(address+":"+strconv.Itoa(port))
 }
 
 func (r *RailwayServer) ApiRoutes() {

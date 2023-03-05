@@ -7,6 +7,6 @@ import (
 )
 
 func BaseRoutes(engine *gin.RouterGroup) {
-	engine.GET("/", handler.Default)
+	engine.GET("", handler.Default)
 	engine.GET("/health", handler.Health)
 }
