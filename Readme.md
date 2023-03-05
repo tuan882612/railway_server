@@ -51,8 +51,8 @@ Running in Production
 - binary is located in directory **bin**
 
 ```make
-make {your os}     // example: make windows
-make run-{your os} // example: make run-windows
+make {your os}     # example: make windows
+make run-{your os} # example: make run-windows
 ```
 
 ---
