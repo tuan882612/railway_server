@@ -1,4 +1,4 @@
-CREATE TABLE Train_Status (
+CREATE TABLE Booked (
     ssn INTEGER,
     train_no INTEGER,
     category VARCHAR(10),

@@ -1,4 +1,4 @@
-﻿Passanger_ssn,Train_Number,Ticket_Type,Staus
+﻿ssn,train_no,category,status
 264816896,3,Premium,Booked
 240471168,2,General,Booked
 285200976,4,Premium,Booked
