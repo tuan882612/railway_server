@@ -16,7 +16,7 @@ func CreateTables() {
 			city VARCHAR(50),
 			county VARCHAR(50),
 			phone2 VARCHAR(15),
-			bdate DATE
+			bdate VARCHAR(10)
 		);`,
 		`CREATE TABLE Train (
 			train_no INTEGER PRIMARY KEY,
@@ -25,12 +25,11 @@ func CreateTables() {
 			general_fare INTEGER,
 			source VARCHAR(50),
 			destination VARCHAR(50),
-			available VARCHAR(255),
-			CONSTRAINT train_status UNIQUE (name),
+			available VARCHAR(255)
 		);`,
 		`CREATE TABLE Train_Status (
 			date date,
-			name VARCHAR(50),
+			name VARCHAR(50) PRIMARY KEY,
 			ps_available integer,
 			gs_available integer,
 			ps_occupied integer,

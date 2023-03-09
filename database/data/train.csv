@@ -1,4 +1,4 @@
-train_no, name, premium_fair, general_fair, source, destination, available
+train_no, name, premium_fare, general_fare, source, destination, available
 1, Orient Express , 800, 600, Paris, Istanbul, Weekdays
 2, Flying Scotsman,4000, 3500, Edinburgh, London, (Friday, Saturday, Sunday)
 3, Golden Arrow , 980, 860, Victoria, Dover, (Monday, Tuesday, Wednesday)
