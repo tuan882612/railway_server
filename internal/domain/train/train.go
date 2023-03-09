@@ -3,20 +3,20 @@ package train
 type Train struct {
 	Train_no 	 int	  `json:"train_no"`
 	Name 		 string   `json:"name"`
-	Source 		 string   `json:"source"`
-	Destination  string   `json:"destination"`
 	Premium_fare int  	  `json:"premium_fare"`
 	General_fare int  	  `json:"general_fare"`
+	Source 		 string   `json:"source"`
+	Destination  string   `json:"destination"`
 	Available    []string `json:"available"`
 }
 
 type TrainStatus struct {
-	Name 	 	string `json:"name"`
 	Date	 	string `json:"date"`
+	Name 	 	string `json:"name"`
 	PsAvaiable  string `json:"ps_avaiable"`
-	PsTaken 	string `json:"ps_taken"`
 	GsAvaiable  string `json:"gs_avaiable"`
-	GsTaken 	string `json:"gs_taken"`
+	Ps_Occupied	string `json:"ps_occupied"`
+	Gs_Occupied	string `json:"gs_occupied"`
 }
 
 type Booked struct {

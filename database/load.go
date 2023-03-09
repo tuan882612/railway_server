@@ -2,11 +2,11 @@ package database
 
 import (
 	"context"
-	"encoding/csv"
+	// "encoding/csv"
 	"log"
 	"os"
 
-	"github.com/jackc/pgx/v4"
+	// "github.com/jackc/pgx/v4"
 )
 
 func LoadData() {
@@ -37,14 +37,14 @@ func LoadData() {
 	}
 	defer train.Close()
 
-	copyCount, err := client.CopyFrom(
-		context.Background(),
-		pgx.Identifier{"my_table"},
-		[]string{"column1", "column2", "column3"}, 
-		csv.NewReader(booked),
-	)
+	// copyCount, err := client.CopyFrom(
+	// 	context.Background(),
+	// 	pgx.Identifier{"my_table"},
+	// 	[]string{"column1", "column2", "column3"}, 
+	// 	csv.NewReader(booked),
+	// )
 	if err != nil {
 		log.Fatal("Unable to copy data:", err)
 	}
-	log.Printf("Copied %d rows to table", copyCount)
+	// log.Printf("Copied %d rows to table", copyCount)
 }
