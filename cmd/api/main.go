@@ -1,22 +1,21 @@
 package main
 
 import (
-	// "main/internal/api"
-	"main/database"
+	"main/internal/api"
 	"main/pkg/config"
 	"main/pkg/validators"
-	// "github.com/gin-gonic/gin"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// gin.SetMode(gin.DebugMode)
+	gin.SetMode(gin.DebugMode)
 
 	config.LoadEnv(".env")
 	validators.ValidateLoadEnv()
 	validators.ValidatePostgres()
 
-	// server := api.InitServer("localhost",2000)
-	// server.LoadConfig()
-	// server.Run()
-	database.CreateTables()
+	server := api.InitServer("localhost",2000)
+	server.LoadConfig()
+	server.Run()
 }

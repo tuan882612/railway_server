@@ -1,20 +1,20 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"main/internal/api/handler"
+	"main/internal/domain/passenger"
+
+	"github.com/gin-gonic/gin"
+)
 
 func PassengerRoutes(engine *gin.RouterGroup) {
+	pHandler := &handler.PassengerController{Repo: passenger.InitRepo()}
 	psg := engine.Group("/passenger")
-	psg.GET("/area")
-	psg.GET("/riding")
-	psg.GET("/traveling")
-	psg.GET("/traveling/confirmed")
-	psg.GET("/waiting")
+	psg.GET("/all", pHandler.GetAll)
+	psg.GET("/waiting", pHandler.GetWaiting)
+	psg.GET("/area", pHandler.GetArea)
+	psg.GET("/riding", pHandler.GetTrainsRiding)
+	psg.GET("/confirmed", pHandler.GetAllwTrainName)
+	psg.GET("/traveling", pHandler.GetTraveling)
+	psg.GET("/traveling/confirmed", pHandler.GetTravelingConfirmed)
 }
-
-/*
-	/area - get all passengers from area code. (desc order)
-	/riding - get all trains passenger is riding from first & last name.
-	/traveling - get all passengers traveling on day entered. (asc order)
-	/traveling/confirmed - same as travel endpoint but for confirmed.
-	/waiting - get all passengers that are waitlisted. 
-*/

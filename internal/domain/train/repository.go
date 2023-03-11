@@ -1,9 +1,13 @@
 package train
 
-type TrainRepository interface {
+import "main/database"
 
+type TrainRepository interface {
+	GetAllTrains() []Train
+	GetInfoAgeRange(start string, end string) []JoinedInfo
+	GetTrainInfoSum(name string) []TrainInfo
 }
 
-func Init_Repo() TrainRepository {
-	return &Repository{}
+func InitRepo() TrainRepository {
+	return &Repository{db: database.GetClient()}
 }

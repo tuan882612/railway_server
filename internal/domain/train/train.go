@@ -1,5 +1,11 @@
 package train
 
+import (
+	"log"
+
+	"github.com/jackc/pgx/v4"
+)
+
 type Train struct {
 	Train_no 	 int	  `json:"train_no"`
 	Name 		 string   `json:"name"`
@@ -7,21 +13,36 @@ type Train struct {
 	General_fare int  	  `json:"general_fare"`
 	Source 		 string   `json:"source"`
 	Destination  string   `json:"destination"`
-	Available    []string `json:"available"`
+	Available    string   `json:"available"`
 }
 
-type TrainStatus struct {
-	Date	 	string `json:"date"`
-	Name 	 	string `json:"name"`
-	PsAvaiable  string `json:"ps_avaiable"`
-	GsAvaiable  string `json:"gs_avaiable"`
-	Ps_Occupied	string `json:"ps_occupied"`
-	Gs_Occupied	string `json:"gs_occupied"`
+type JoinedInfo struct {
+	FirstName 	string `json:"firt_name"`
+    LastName  	string `json:"last_name"`
+    TrainNo	  	int    `json:"train_no"`
+    Name	    string `json:"name"`
+    Source		string `json:"sourcee"`
+    Destination string `json:"destination"`
+    Status		string `json:"status"`
+    Category	string `json:"category"`
 }
 
-type Booked struct {
-	Ssn		 int    `json:"ssn"`
-	TrainNo	 string `json:"train_no"`
-	Category string `json:"category"`
-	Status   string `json:"status"`
+type TrainInfo struct {
+	Name  string `json:"name"`
+    Date  string `json:"date"`
+    Count int	 `json:"count"`
+}
+
+func ValidateTrain(data pgx.Rows, train *Train) {
+	if err := data.Scan(
+		&train.Train_no,
+		&train.Name,
+		&train.Premium_fare,
+		&train.General_fare,
+		&train.Source,
+		&train.Destination,  
+		&train.Available,
+	); err != nil {
+		log.Fatal("Unabkle to process data.")
+	}
 }

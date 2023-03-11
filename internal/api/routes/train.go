@@ -1,16 +1,16 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"main/internal/api/handler"
+	"main/internal/domain/train"
+
+	"github.com/gin-gonic/gin"
+)
 
 func TrainRoutes(engine *gin.RouterGroup) {
+	hHandler := &handler.TrainController{Repo: train.InitRepo()}
 	train := engine.Group("/train")
-	train.GET("/info")
-	train.GET("/info/age")
-	train.GET("/confirmed")
+	train.GET("/all", hHandler.GetAll)
+	train.GET("/info", hHandler.GetInfo)
+	train.GET("/info/age", hHandler.GetInfoAge)
 }
-
-/*
-	/info - get info on train on that day from train name.
-	/info/age - get train info from age of passenger entered.
-	/confirmed - get all psg with confirmed status on train from train name.
-*/

@@ -69,6 +69,37 @@ make testAll
 
 ---
 
+## API Endpoints
+
+Base Endpoints
+
+```txt
+GET    /api/v1
+GET    /api/v1/health
+```
+
+Passenger Endpoints
+
+```txt
+GET    /api/v1/passenger/all
+GET    /api/v1/passenger/waiting
+GET    /api/v1/passenger/area - param: code 
+GET    /api/v1/passenger/riding - param: first-name, last-name
+GET    /api/v1/passenger/confirmed - param: train-name
+GET    /api/v1/passenger/traveling - param: day
+GET    /api/v1/passenger/traveling/confirmed - param: day
+```
+
+Train Endpoints
+
+```txt
+GET    /api/v1/train/all
+GET    /api/v1/train/info - param: name
+GET    /api/v1/train/info/age - param: start, end
+```
+
+___
+
 ## Important Locations and Project Structure
 
 - SQL queries are in directory **internal/domain/{entity}/service.go**
@@ -88,6 +119,8 @@ make testAll
 │   │   ├── passenger.csv
 │   │   ├── train.csv
 │   │   └── train_status.csv
+│   ├── create.go
+│   ├── load.go
 │   ├── pg.go
 │   └── schema
 │       ├── booked.sql

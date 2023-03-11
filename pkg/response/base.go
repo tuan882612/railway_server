@@ -24,12 +24,22 @@ func Custom(Data any, code int, message string) Base {
 	}
 }
 
-func Error(err error) Base {
+func Error(err string) Base {
 	return Base{
 		Data: map[string]string{},
 		Meta: Meta{
 			Code:    http.StatusBadRequest,
-			Message: err.Error(),
+			Message: err,
+		},
+	}
+}
+
+func Empty() Base {
+	return Base{
+		Data: map[string]string{},
+		Meta: Meta{
+			Code: http.StatusNoContent,
+			Message: "Table doesn't contain data",
 		},
 	}
 }
